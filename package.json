@@ -3,6 +3,7 @@
   "displayName": "fastApi",
   "description": "fast create api files",
   "version": "0.0.1",
+  "publisher": "renzz",
   "engines": {
     "vscode": "^1.88.0"
   },
@@ -12,10 +13,27 @@
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "fastapi.helloWorld",
-      "title": "Hello World"
-    }]
+    "commands": [
+      {
+        "command": "getFileState",
+        "title": "Run Api-Fast"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorFocus",
+          "command": "getFileState",
+          "group": "navigation"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "getFileState",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "lint": "eslint .",
